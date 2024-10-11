@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "fef",
+  "version": "${version}",
+  "name": "FTI Essential Features",
+  "description": "Essential features required by modpack Farm The Ingots",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/fef/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "cool.muyucloud.fef.client.FtiEssentialFeaturesClient"
+    ],
+    "main": [
+      "cool.muyucloud.fef.FtiEssentialFeatures"
+    ]
+  },
+  "mixins": [
+    {
+      "config": "fef.mixins.json",
+      "environment": "*"
+    },
+    {
+      "config": "fef.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "fabric": "*",
+    "minecraft": "~1.20"
+  },
+  "suggests": {
+    "ad_astra": "*",
+    "modern_dynamics": "*",
+    "tlr": "*",
+    "extended_drawers": "*"
+  }
+}
