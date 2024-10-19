@@ -1,0 +1,12 @@
+{
+    "music.glacio": {
+        "subtitle": "Narcissus (Re)",
+        "sounds": [
+            {
+                "name": "fef:music/track1",
+                "stream": true,
+                "volume": 0.4
+            }
+        ]
+    }
+}

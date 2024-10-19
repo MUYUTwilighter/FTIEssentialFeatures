@@ -5,10 +5,13 @@
   "compatibilityLevel": "JAVA_17",
   "client": [
     "DrawerBlockEntityRendererMixin",
+    "MinecraftMixin",
     "PipeBlockEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
-  "plugin": "cool.muyucloud.fef.FefMixinConfigPlugin"
+  "plugin": "cool.muyucloud.fef.FefMixinConfigPlugin",
+  "mixins": [
+  ]
 }
