@@ -1,16 +1,19 @@
 package cool.muyucloud.fef.mixin;
 
 import cool.muyucloud.fef.FtiEssentialFeatures;
-import cool.muyucloud.fef.refection.TNetReflection;
 import dev.architectury.networking.NetworkManager;
 import ins.tlr.network.TNet;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TNet.class)
 public class TNetMixin {
+    @Shadow @Final private int level;
+
     @Inject(
         method = "lambda$receive$0",
         at = @At(
@@ -20,9 +23,9 @@ public class TNetMixin {
         cancellable = true
     )
     private static void onApplyEnchantment(NetworkManager.PacketContext pack, TNet a, CallbackInfo ci) {
-        TNetReflection tNet = TNetReflection.of(a);
-        int level = tNet.getValue();
-        if (level >= FtiEssentialFeatures.CONFIG.getTlrMaxEnchantLevel()) {
+        TNetMixin tNet = (TNetMixin) (Object) a;
+        assert tNet != null;
+        if (tNet.level >= FtiEssentialFeatures.CONFIG.getTlrMaxEnchantLevel()) {
             ci.cancel();
         }
     }
